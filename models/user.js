@@ -4,7 +4,9 @@ let UserSchema = mongoose.Schema({
   firstName: { type: String, required: [true, "please enter your firstname"] },
   lastName: { type: String, required: [true, "please enter your lastname"] },
   email: { type: String, required: [true, "please enter your email"] },
-  password: { type: String, required: [true, "please enter your  password"] }
+  password: { type: String, required: [true, "please enter your  password"] },
+  verified: { type: Bool, default: false },
+  dateJoined: { type: Date, default: Date.now }
 });
 
 let User = mongoose.model("user", UserSchema);
