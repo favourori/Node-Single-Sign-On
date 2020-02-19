@@ -10,7 +10,20 @@ router.get("/", (req, res) => {
   res.status(200).send("User route");
 });
 
-//start
+//Get all Abitnetwork users
+
+router.get("/allUsers", (req, res) => {
+  User.find()
+    .then(data => {
+      res.status(200).send({ success: true, data: data });
+    })
+    .catch(e => {
+      res.status(400).send({
+        success: false,
+        message: "No users found"
+      });
+    });
+});
 
 router.get("/:id", async (req, res) => {
   try {
