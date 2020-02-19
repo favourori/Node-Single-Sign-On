@@ -16,6 +16,17 @@ mongoose
     console.log(e.message);
   });
 
+//allowing cors
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
 //Middlewares here
 let bodyParser = require("body-parser");
@@ -27,7 +38,6 @@ app.use(express.static("public"));
 
 // parse application/json
 app.use(bodyParser.json());
-
 
 //importing routes
 let userRoute = require("./routes/user");
