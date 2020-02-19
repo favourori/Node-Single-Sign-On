@@ -8,7 +8,7 @@ let userRoute = require("./routes/user");
 
 //using routes
 
-app.use("/sso/api", userRoute);
+app.use("/sso/api/user", userRoute);
 
 app.get("/", (req, res) => {
   res
