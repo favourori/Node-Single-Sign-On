@@ -1,7 +1,14 @@
 let express = require("express");
 let app = express();
-require('dotenv').config()
+require("dotenv").config();
 const mongoose = require("mongoose");
+
+//importing routes
+let userRoute = require("./routes/user");
+
+//using routes
+
+app.use("/sso/api", userRoute);
 
 app.get("/", (req, res) => {
   res
