@@ -3,6 +3,32 @@ let app = express();
 require("dotenv").config();
 const mongoose = require("mongoose");
 
+//connect to db here
+mongoose
+  .connect(process.env.DBURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => {
+    console.log("connected to DB");
+  })
+  .catch(e => {
+    console.log(e.message);
+  });
+
+
+//Middlewares here
+let bodyParser = require("body-parser");
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+//allowing for serving static files
+app.use(express.static("public"));
+
+// parse application/json
+app.use(bodyParser.json());
+
+
 //importing routes
 let userRoute = require("./routes/user");
 
