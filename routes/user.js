@@ -70,7 +70,7 @@ router.post("/register", async (req, res) => {
         .save()
         .then(data => {
           const token = jwt.sign({ user: newUser }, process.env.JWT_SECRET);
-          let redirectUrl = `https://abitsso.herokuapp.com/success.html/?firstName=${data.firstName}&lastName=${data.lastName}&email=${data.email}&dateJoined=${data.dateJoined}`;
+          let redirectUrl = `https://abitsso.herokuapp.com/success.html?firstName=${data.firstName}&lastName=${data.lastName}&email=${data.email}&dateJoined=${data.dateJoined}`;
           res
             .header("auth-token", token)
             .status(200)
