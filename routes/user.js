@@ -51,9 +51,11 @@ router.post("/register", async (req, res) => {
   try {
     let user = await User.findOne({ email: req.body.email });
     if (user) {
-      res
-        .status(400)
-        .send({ success: false, message: "A user with this email exists" });
+      // res
+      //   .status(400)
+      //   .send({ success: false, message: "A user with this email exists" });
+      res.render("error");
+
     } else {
       //Hash password
       let salt = await bcrypt.genSalt(10);
