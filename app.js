@@ -42,7 +42,8 @@ app.use(function(req, res, next) {
   next();
 });
 
-//Middlewares here
+
+//Body Middlewares here
 let bodyParser = require("body-parser");
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -53,11 +54,14 @@ app.use(express.static("public"));
 // parse application/json
 app.use(bodyParser.json());
 
-//importing routes
+
+
+
+//importing Main routes
 let userRoute = require("./routes/user");
 
-//using routes
 
+//using routes
 app.use("/sso/api/user", userRoute);
 
 app.get("/", (req, res) => {
