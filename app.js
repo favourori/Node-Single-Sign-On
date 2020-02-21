@@ -8,8 +8,10 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 //cors
 let cors = require("cors");
+app.set("view engine", "ejs");
 
-app.use(express.static(path.join(__dirname, "/public")));
+app.use(express.static("public"));
+//app.use(express.static(path.join(__dirname, "/public")));
 
 //connect to db here
 mongoose

@@ -6,13 +6,7 @@ require("dotenv").config();
 
 let User = require("../models/user");
 
-router.get("/", (req, res) => {
-  //res.status(200).send("User route");
-  res.sendfile("public/signup.html");
-});
-
 //Get all Abitnetwork users
-
 router.get("/allUsers", (req, res) => {
   User.find()
     .then(data => {
@@ -26,23 +20,30 @@ router.get("/allUsers", (req, res) => {
     });
 });
 
-router.get("/:id", async (req, res) => {
-  try {
-    let user = await User.findById(req.params.id);
+//get user by ID
+// router.get("/:id", async (req, res) => {
+//   try {
+//     let user = await User.findById(req.params.id);
 
-    if (user) {
-      res.status(200).send({ success: true, data: user });
-    } else {
-      res
-        .status(200)
-        .send({ success: false, message: "User with the id does not exist" });
-    }
-  } catch (e) {
-    res.status(400).send({
-      success: false,
-      message: e.message
-    });
-  }
+//     if (user) {
+//       res.status(200).send({ success: true, data: user });
+//     } else {
+//       res
+//         .status(200)
+//         .send({ success: false, message: "User with the id does not exist" });
+//     }
+//   } catch (e) {
+//     res.status(400).send({
+//       success: false,
+//       message: e.message
+//     });
+//   }
+// });
+
+//show signup form..
+router.get("/register", (req, res) => {
+  //res.status(200).send("User route");
+  res.render("signup");
 });
 
 //handling user registration
@@ -69,7 +70,7 @@ router.post("/register", async (req, res) => {
         .save()
         .then(data => {
           const token = jwt.sign({ user: newUser }, process.env.JWT_SECRET);
-          let redirectUrl = `https://abitsso.herokuapp.com/?firstName=${data.firstName}&lastName=${data.lastName}&email=${data.email}&dateJoined=${data.dateJoined}`;
+          let redirectUrl = `https://abitsso.herokuapp.com/success.html/?firstName=${data.firstName}&lastName=${data.lastName}&email=${data.email}&dateJoined=${data.dateJoined}`;
           res
             .header("auth-token", token)
             .status(200)
