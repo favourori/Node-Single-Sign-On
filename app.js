@@ -1,16 +1,22 @@
 //core modulels
 const path = require("path");
 
+
+//Npm modules
 let express = require("express");
 let app = express();
 require("dotenv").config();
 const mongoose = require("mongoose");
+
 //cors
 let cors = require("cors");
-app.set("view engine", "ejs");
 
+//setting middlewares
+app.set("view engine", "ejs");
 app.use(express.static("public"));
 //app.use(express.static(path.join(__dirname, "/public")));
+
+
 
 //connect to db here
 mongoose
@@ -26,7 +32,6 @@ mongoose
   });
 
 //allowing cors
-
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "*");
