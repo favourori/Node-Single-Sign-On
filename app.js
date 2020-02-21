@@ -1,7 +1,6 @@
 //core modulels
 const path = require("path");
 
-
 //Npm modules
 let express = require("express");
 let app = express();
@@ -15,8 +14,6 @@ let cors = require("cors");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 //app.use(express.static(path.join(__dirname, "/public")));
-
-
 
 //connect to db here
 mongoose
@@ -42,7 +39,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-
 //Body Middlewares here
 let bodyParser = require("body-parser");
 // parse application/x-www-form-urlencoded
@@ -54,16 +50,13 @@ app.use(express.static("public"));
 // parse application/json
 app.use(bodyParser.json());
 
-
-
-
 //importing Main routes
 let userRoute = require("./routes/user");
-
 
 //using routes
 app.use("/sso/api/user", userRoute);
 
+//Index Route
 app.get("/", (req, res) => {
   res
     .status(200)
@@ -72,6 +65,11 @@ app.get("/", (req, res) => {
     );
 });
 
+
+
+
+
+//spin up server
 let PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
