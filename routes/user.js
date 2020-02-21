@@ -55,7 +55,6 @@ router.post("/register", async (req, res) => {
       //   .status(400)
       //   .send({ success: false, message: "A user with this email exists" });
       res.render("error");
-
     } else {
       //Hash password
       let salt = await bcrypt.genSalt(10);
