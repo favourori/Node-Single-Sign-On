@@ -41,7 +41,7 @@
       </p>
 
       <div>
-        <form>
+        <form id="signup-form" method="POST">
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">account_circle</i>
@@ -93,6 +93,7 @@
 
             <center>
               <button
+                onclick="signup()"
                 class="waves-effect waves-light btn-large form-button"
                 style="margin-top: 20px; margin-bottom: 20px; width: 95%"
                 type="submit"
@@ -108,5 +109,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="process.js"></script>
   </body>
 </html>

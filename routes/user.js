@@ -7,7 +7,8 @@ require("dotenv").config();
 let User = require("../models/user");
 
 router.get("/", (req, res) => {
-  res.status(200).send("User route");
+  //res.status(200).send("User route");
+  res.sendfile("public/signup.html");
 });
 
 //Get all Abitnetwork users
