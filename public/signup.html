@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABiT Single Sign-on</title>
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/png" href="logo.png" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Poppins:100,300,400,500,600,700&display=swap");
+    </style>
+
+    <style>
+      .form-button {
+        background-color: #18116c !important;
+      }
+    </style>
+  </head>
+  <body style="background-color: #ecf0f1; font-family: 'Poppins';">
+    <div
+      class="container"
+      style="background-color: white; max-width: 430px; padding: 10px 20px; margin-top: 40px"
+    >
+      <br />
+      <img src="abitlo.png" width="60px" />
+
+      <h1 style="font-size:20px;margin-top: 25px">ABiT Single Sign - on</h1>
+      <p style="margin-top: -12px">
+        <b>1 Account</b>, access to all ABiT Network Platforms
+      </p>
+
+      <div>
+        <form>
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">account_circle</i>
+              <input
+                id="firstname"
+                type="text"
+                class="validate"
+                required
+                name="firstName"
+              />
+              <label for="firstname">First Name</label>
+            </div>
+
+            <div class="input-field col s12">
+              <i class="material-icons prefix">account_circle</i>
+              <input
+                id="lastname"
+                type="text"
+                class="validate"
+                required
+                name="lastName"
+              />
+              <label for="lastname">Last Name</label>
+            </div>
+
+            <div class="input-field col s12">
+              <i class="material-icons prefix">email</i>
+              <input
+                id="email"
+                type="email"
+                class="validate"
+                required
+                name="email"
+              />
+              <label for="email">Email</label>
+            </div>
+
+            <div class="input-field col s12">
+              <i class="material-icons prefix">enhanced_encryption</i>
+              <input
+                id="password"
+                type="password"
+                class="validate"
+                required
+                name="password"
+              />
+              <label for="password">Password</label>
+            </div>
+
+            <center>
+              <button
+                onclick="M.toast({html: 'I am a toast!'})"
+                class="waves-effect waves-light btn-large form-button"
+                style="margin-top: 20px; margin-bottom: 20px; width: 95%"
+                type="submit"
+              >
+                REGISTER NOW
+              </button>
+            </center>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>
