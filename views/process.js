@@ -17,7 +17,7 @@ signup = () => {
 
   if (firstname && lastname && email && password) {
     axios
-      .post("https://abitsso.herokuapp.com//sso/api/user/register", {
+      .post("https://abitsso.herokuapp.com/sso/api/user/register", {
         firstName: firstname,
         lastName: lastName,
         email: email,
