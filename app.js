@@ -1,9 +1,15 @@
+//core modulels
+
+const path = require("path");
+
 let express = require("express");
 let app = express();
 require("dotenv").config();
 const mongoose = require("mongoose");
 //cors
 let cors = require("cors");
+
+console.log(path.join(__dirname, "/public"));
 
 //connect to db here
 mongoose
