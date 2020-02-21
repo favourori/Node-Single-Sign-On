@@ -63,18 +63,22 @@ router.post("/register", async (req, res) => {
         email: req.body.email,
         password: hashedPassword
       });
+
       newUser
         .save()
         .then(data => {
           const token = jwt.sign({ user: newUser }, process.env.JWT_SECRET);
+          let redirectUrl = `https://abitsso.herokuapp.com/?firstName=${data.firstName}&lastName=${data.lastName}&email=${data.email}&dateJoined=${data.dateJoined}`;
           res
             .header("auth-token", token)
             .status(200)
-            .send({
-              success: true,
-              data: data,
-              token: token
-            });
+            // .send({
+            //   success: true,
+            //   data: data,
+            //   token: token
+            // });
+            .redirect(redirectUrl);
+          console.log(redirectUrl);
         })
         .catch(err => {
           res.status(400).send(err.message);
